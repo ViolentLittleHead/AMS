@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Editing</title>
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="webjars/summernote/0.8.11/dist/summernote.css"/>
+    <script src="webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="webjars/summernote/0.8.11/dist/summernote.js"></script>
+
+    <script>
+        window.onload = function () {
+            document.getElementById("a_exit").onclick = function () {
+                if(confirm("确定退出吗？")){
+                    location.replace("${pageContext.request.contextPath}/exitServlet");
+                }
+            }
+        }
+
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
+</head>
+<body>
+<center>
+    <h1>欢迎使用文章管理系统</h1>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="index.jsp">主页</a></li>
+        <li role="presentation"><a href="user.jsp">我的信息</a></li>
+        <li role="presentation"><a href="${pageContext.request.contextPath}/findFileByPageServlet?currentPage=1&rows=8">文件管理</a></li>
+        <li role="presentation" class="active"><a href="editing.jsp">在线编辑</a></li>
+        <li role="presentation"><a href="javascript:void(0);" id="a_exit">退出</a></li>
+    </ul>
+    <br>
+    <form>
+        <div style="float: right;margin-right: 5%;">
+            <a class="btn btn-primary" href="javascript:void(0);" id="keep">保存</a>
+        </div>
+        <div id="summernote" style="margin:30px"><p>Hello Summernote</p></div>
+    </form>
+    <br>
+
+    <br>
+
+</center>
+</body>
+</html>
